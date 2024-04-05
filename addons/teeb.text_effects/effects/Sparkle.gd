@@ -1,6 +1,8 @@
-tool
+@tool
 extends RichTextEffect
 
+# If unbounded, visual errors occur at asymptotes
+var clamp_limit: float = 0.9999
 
 # Syntax: [sparkle freq c1 c2 c3][/sparkle]
 var bbcode = "sparkle"
@@ -20,11 +22,11 @@ static func lerp_list(a:Array, t:float):
 func get_color(s) -> Color:
 	if s is Color: return s
 	elif s[0] == '#': return Color(s)
-	else: return ColorN(s)
+	else: return Color.from_string(s, Color(1.0, 1.0, 1.0, 1.0))
 
 
 func get_rand_unclamped(char_fx):
-	return char_fx.character * 33.33 + char_fx.absolute_index * 4545.5454
+	return char_fx.glyph_index * 33.33 + char_fx.range.x# * 4545.5454
 
 
 func _process_custom_fx(char_fx):
@@ -40,5 +42,6 @@ func _process_custom_fx(char_fx):
 
 	if len(colors) != 0:
 		var t = sin(char_fx.elapsed_time * freq + get_rand_unclamped(char_fx)) * .5 + .5
+		t = clamp(t, -1.0*clamp_limit, clamp_limit)
 		char_fx.color = lerp_list(colors, t)
 	return true
