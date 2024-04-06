@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends RichTextEffect
 
 # If unbounded, visual errors occur at asymptotes

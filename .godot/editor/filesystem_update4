@@ -1,5 +1,5 @@
 res://default_env.tres
 res://addons/teeb.text_effects/demo/demo_scene.tscn
 res://addons/teeb.text_effects/resources/ColorMod.tres
-res://addons/teeb.text_effects/utils/utils.gd
-res://addons/teeb.text_effects/effects/Nervous.gd
+res://addons/teeb.text_effects/effects/Cuss.gd
+res://addons/teeb.text_effects/demo/RichTextLabel.tscn

@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends RichTextEffect
 
 
@@ -28,7 +28,7 @@ func _process_custom_fx(char_fx):
 		_last_char_was_number = false
 		_last_word_was_number = false
 	
-	# If the following is a wutils.ord, and it came after a number, we'll colorize it.
+	# If the following is a word, and it came after a number, we'll colorize it.
 	if char_fx.glyph_index == SPACE:
 		if _last_char_was_number:
 			_last_word_was_number = true
