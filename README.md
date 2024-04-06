@@ -1,27 +1,17 @@
+# Text Effects for Godot 4
+I wanted to build off [teebarjunk](https://github.com/teebarjunk)'s [godot-text_effects](https://github.com/teebarjunk/godot-text_effects), but first needed to translate them for Godot 4. 
 
-Effects Preview:
+There currently seems to be a bug in Godot 4.2.X that throws thousands of errors a seconds when `@tool` is active on resources extending `RichTextEffects` that are interactig with variables declared outside of `_process_custom_fx()`. I believe this is caused by those variables not being initialized in an "onready" fashion within the editor like other `@tool` scripts since `Resources` are not `Nodes`. 
 
-https://user-images.githubusercontent.com/18387401/130072369-90f99c72-358e-41fe-af4d-cfea32665741.mp4
+## Effects Preview:
 
-Transition Preview:
+![Effects](readme/textfx000.gif)
 
-https://user-images.githubusercontent.com/18387401/130072410-a80b2545-3a13-4704-af9b-000e3816de35.mp4
+## Transition Preview:
 
-Released as is. You may need to figure things out yourself, but I included demos.
-
-**addons/teeb.text_effects**: Simple bbcode elements to use in *RichTextLabel*s.
-
-**addons/teeb.text_transitions**: Hacky text animations. A bit complex to implement.
-
-***Many of these effects require a monowidth font to work properly.***
-
-## Got ideas?
-
-Make a feature request of any text effects you'd like to see, and I'll try to implement them.
+NOT TRANSLATED YET
 
 ## Effects
-
-[![Effect Preview](readme/effect_preview.png "Effect Preview")](https://streamable.com/ev4k4a)
 
 The effects be used like any other bbcode.
 
@@ -79,70 +69,4 @@ Hey... [nervous]muh-maybe could I...[/nervous] have the [sparkle c1=red c2=yello
 
 ## RichTextTransition Node
 
-[![Transition Preview](readme/trans_preview.png "Transition Preview")](https://streamable.com/p18yu4)
-
-Warning: This is a hacky, wonky implementation of text transition effects. But it works well enough for me.
-
-### Node Properties
-
-**id**: Only necessary if you want to use multiple different *RichTextTransition*s at once.
-
-**time**: The animation state. Slide this in editor to preview, or modify it with an *Animator* or *Tween* node.
-
-**length**: The number of characters or words effected by the animation.
-Shorter = quicker, pop-ier animations.
-Longer = gradual, flow-ier animation.
-For transitions like ***console*** this should be set to 1.
-
-**reverse**: Should be set before transitioning out.
-
-**all_at_once**: If you just want all characters to fade in/out at once, use this.
-
-**animation_time**: Used by ***fade_in*** and ***fade_out*** methods.
-
-0.5 = half normal speed.
-
-2.0 = twice normal speed.
-
-### Node Methods
-
-**fade_in**: Calls the *AnimationPlayer* ***fade_in*** animation.
-
-**fade_out**: Calls the *AnimationPlayer* ***fade_out*** animation.
-
-
-### Transitions
-
-The following can be used like any other bbcode.
-
-`
-[embers]Long ago, legends foretold...[/embers]
-`
-
-But if you are using multiple *RichTextTransition*s, best to include a unique id attribute that matches the *id* field in the node.
-
-`
-[embers id=unique_id]Long ago, legends foretold...[/embers]
-`
-
-**bounce**: Letters fade and bounce in.
-
-**console**: Letters are lead in by a blinking "cursor." When fading out they scroll up.
-
-**embers**: Letters fade in/out from random directions.
-
-- scale: Distance to move in/out from.
-- color: Color of the "embers."
-
-**prickle**: Letters fade in/out in a noisy random way.
-
-- pow: Power of fade in. Larger = more abrupt.
-
-**redacted**: Letters are blocked out before being exposed.
-
-- freq: Y offset frequency.
-- scale: Y offset scale.
-
-**wfc**: Wave function collapse inspired effect, where flickering numbers "collapse" to letters.
-
-**word**: Fade in/out on a word by word basis, rather than letters.
+NOT TRANSLATED YET
