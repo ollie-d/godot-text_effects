@@ -15,6 +15,15 @@ Or, simply mess with the following slider and toggles."""
 @export var all_at_once: bool = false: get = _get_all_at_once, set = _set_all_at_once
 
 
+
+func _ready():
+	#$bounce.bounce.char_placed.connect(on_char_placed)
+	$bounce.custom_effects[0].char_placed.connect(on_char_placed)
+
+
+func on_char_placed():
+	pass
+
 func _process(delta):
 	if Input.is_key_pressed(KEY_1):
 		for key in TextTransitionSettings.transitions:

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="text_effects"
-run/main_scene="res://addons/teeb.text_effects/demo/demo_scene.tscn"
+run/main_scene="res://addons/teeb.text_transitions/demo/demo_scene.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
 utils="*res://addons/teeb.text_effects/utils/utils.gd"
+bus="*res://globals/bus.tscn"
 
 [rendering]
 

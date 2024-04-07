@@ -6,7 +6,7 @@ extends "res://addons/teeb.text_transitions/transitions/TransitionBase.gd"
 var bbcode = "embers"
 
 
-const EMBER = ord(".")
+var EMBER = utils.ord(".")
 
 
 func _process_custom_fx(char_fx):
@@ -23,8 +23,8 @@ func _process_custom_fx(char_fx):
 	var clr2 = clr1
 	clr2.a = 0.0
 	
-	var t = tween_data.get_t(char_fx.absolute_index)
-	var t2 = tween_data.get_t(char_fx.absolute_index+1)
+	var t = tween_data.get_t(char_fx.range.x)
+	var t2 = tween_data.get_t(char_fx.range.x+1)
 	var r = get_rand(char_fx) * PI * 2.0
 	# Comment out the next three lines to have it be the letter itself.
 #	if t != t2:
